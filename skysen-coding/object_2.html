@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Property, Method, Encapsulation</title>
+</head>
+
+<body>
+   <script>
+      // Property, Method, Encapsulation
+
+      // 1. object literal
+
+      // let studentName = "Hadi";
+      // function learn(name) {
+      //    console.log(name + " is learning ");
+      // }
+
+      // let teacherName = "Tari";
+      // function teach(name) {
+      //    console.log(name + " is teaching ");
+      // }
+
+      // let student = {
+      //    name: "Dalis Hadi",
+      //    learn: function () {
+      //       console.log(this.name + " is learning ");
+      //    }
+      // };
+      // let teacher = {
+      //    name: "Krismantari",
+      //    teach: function () {
+      //       console.log(this.name + " is teaching ");
+      //    }
+      // };
+
+
+
+      // 2. Constractor Function
+      // function Student(name, age, intelligence) {
+      //    this.name = name;
+      //    this.age = age;
+      //    this.intelligence = intelligence;
+      //    this.learn = function (year = 1) {
+      //       this.age += year;
+      //       this.intelligence += 10 * year;
+      //       console.log(this.name + " is learning ");
+      //    }
+      // }
+
+      // let dalis = new Student("Dalis", 33, 900);
+      // let tari = new Student("Tari", 25, 800);
+
+
+
+
+      // 3. Factory Function
+      // function createStudent(name, age, intelligence) {
+      //    return {
+      //       name,
+      //       age,
+      //       intelligence,
+      //       learn: function (year = 1) {
+      //          this.age += year;
+      //          this.intelligence += 10 * year;
+      //          console.log(this.name + " is learning ");
+      //       }
+      //    };
+
+      // }
+      // let dalis = createStudent("Dalis", 33, 900);
+      // let tari = createStudent("Tari", 25, 800);
+
+
+
+
+      let studentMethod = {
+         learn: function (year = 1) {
+            this.age += year;
+            this.intelligence += 10 * year;
+            console.log(this.name + " is learning ");
+         },
+         relax: function (year = 1) {
+            this.age += year;
+            console.log(this.name + " is Relaxing ");
+         }
+
+      }
+
+      function createStudent(name, age, intelligence) {
+         return {
+            name,
+            age,
+            intelligence,
+            learn: studentMethod.learn,
+            relax: studentMethod.relax
+         };
+      }
+
+      let dalis = createStudent("Dalis", 33, 900);
+      let tari = createStudent("Tari", 25, 800);
+
+// skysen coding solution
+
+   </script>
+</body>
+
+</html>

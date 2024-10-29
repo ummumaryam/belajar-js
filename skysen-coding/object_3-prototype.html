@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+
+<body>
+    <script>
+
+
+        // factory function
+
+        // let studentMethod = {
+        //     learn: function (year = 1) {
+        //         this.age += year;
+        //         this.intelligence += 10 * year;
+        //         console.log(this.name + " is learning ");
+        //     },
+        //     relax: function (year = 1) {
+        //         this.age += year;
+        //         console.log(this.name + " is Relaxing ");
+        //     },
+        //     helo: function () {
+        //         console.log(this.name + " says Hello");
+        //     }
+
+        // }
+        // function createStudent(name, age, intelligence) {
+        //     let student = Object.create(studentMethod);
+        //     student.name = name;
+        //     student.age = age;
+        //     student.intelligence = intelligence;
+
+        //     return student;
+        // }
+
+        // let dalis = createStudent("Dalis", 33, 900);
+        // let tari = createStudent("Tari", 25, 800);
+
+        // skysen coding solution
+
+        // 4. Prototype
+        function Student(name, age, intelligence) {
+            this.name = name;
+            this.age = age;
+            this.intelligence = intelligence;
+        }
+
+        Student.prototype.learn = function (year = 1) {
+            this.age += year;
+            this.intelligence += 10 * year;
+            console.log(this.name + " is learning ");
+        }
+
+        Student.prototype.relax = function (year = 1) {
+            this.age += year;
+            console.log(this.name + " is relaxing ");
+        }
+
+        Student.prototype.helo = function () {
+            console.log(this.name + " says Hello");
+        }
+
+
+        let dalis = new Student("Dalis", 33, 900);
+        let tari = new Student("Tari", 25, 800);
+
+
+
+    </script>
+</body>
+
+</html>

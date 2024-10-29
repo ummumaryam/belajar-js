@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Template Literals</title>
+    </head>
+
+    <body>
+        <script>
+            {
+                // 1. HTML Fragments
+                //     const mhs = {
+                //         nama: "Dalis Hadi",
+                //         umur: 34,
+                //         nrp: "0876545478",
+                //         email: "dalishadisaputra@gmail.com",
+                //     };
+                //     const el = `<div class="mhs">
+                // <h2>${mhs.nama}<h2>
+                // <span class="nrp">${mhs.nrp}</span>
+                // </div>`;
+                //     document.body.innerHTML = el;
+            }
+
+            {
+                // 2. Looping
+                //     const mhs = [
+                //         {
+                //             nama: "Dalis Hadi",
+                //             email: "dalishadisaputra@gmail.com",
+                //         },
+                //         {
+                //             nama: "Herman Saputra",
+                //             email: "hermanaputra@gmail.com",
+                //         },
+                //         {
+                //             nama: "Maryam Qurrota",
+                //             email: "maryamq@gmail.com",
+                //         },
+                //     ];
+                //     const el = `<div class="mhs">
+                //    ${mhs
+                //        .map(
+                //            (m) => `<ul>
+                //       <li>${m.nama}</li>
+                //       <li>${m.email}</li>
+                //       </ul>`
+                //        )
+                //        .join("")}
+                //    </div>`;
+                //     document.body.innerHTML = el;
+            }
+
+            {
+                // 3. Conditionals
+                // ternary
+                const lagu = {
+                    judul: "Tetap Dalam Jiwa",
+                    penyanyi: "Isyana Sarasvati",
+                    // feat: "Rayi Putra",
+                };
+                const el = `<div class="lagu">
+                   <ul>
+                      <li>${lagu.penyanyi}</li>
+                      <li>${lagu.judul} ${
+                    lagu.feat ? `(feat. ${lagu.feat})` : ""
+                }</li>
+                      </ul>
+                   </div>`;
+                document.body.innerHTML = el;
+            }
+
+            {
+                // 4. Nested
+                // HTML Fragments bersarang
+                const mhs = {
+                    nama: "Dalis Hadi Saputra",
+                    semester: 5,
+                    matakuliah: [
+                        "Rekayasa Web",
+                        "Analisis dan Perancangan Sistem Informasi",
+                        "Pemrograman Sistem Interaktif",
+                        "Perancangan Sistem Berorientasi Object",
+                    ],
+                };
+                function cetakMataKuliah(matakuliah) {
+                    return `
+                  <ol>
+                     ${matakuliah.map((mk) => `<li>${mk}</li>`).join("")}
+                  </ol>
+                  `;
+                }
+                const el = `<div class="mhs">
+                  <h2>Nama : ${mhs.nama}<h2>
+                  <span class="semester">Semester : ${mhs.semester}</span>
+                  <h4>Mata Kuliah :</h4>
+                  ${cetakMataKuliah(mhs.matakuliah)}
+                  </div>`;
+                document.body.innerHTML = el;
+            }
+        </script>
+    </body>
+</html>

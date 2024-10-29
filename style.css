@@ -1,0 +1,29 @@
+body {
+    float: left;
+    display: flex;
+    display: inline-block;
+    display: list-item;
+    display: block;
+    display: none;
+    clear: both;
+    clear: left;
+    float: right;
+    position: relative;
+    position: static;
+    position: absolute;
+    bottom: auto;
+
+    @keyframes identifier {
+        from {}
+
+        to {}
+    }
+
+    justify-content: center;
+    justify-content: flex-start;
+    transform: scale(x, y);
+    transform: scaleY(y);
+    text-overflow: ellipsis;
+    transform: rotate(angle);
+
+}

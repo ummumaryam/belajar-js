@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>IIFE</title>
+    </head>
+    <body>
+        <script>
+            // IIFE -> ekspresi fungsi yang langsung di panggil
+            // perintah dasarnya adalah sebagai berikut:
+            // (function(params) {
+            //
+            // })();
+
+            // mengapa menggunakan IIFE ?
+            // Karena ketika kita membuat fungsi mesin js akan menambahkan fungsi tersebut
+            // ke object global
+
+            // contoh
+            function add(a, b) {
+                return a + b;
+            }
+
+            console.log(window.add);
+
+            // --------------------------------
+
+            var counter = 10;
+            console.log(window.counter);
+            // ---------------------------------
+
+            ("ini adalah sebuah string");
+            10 + 20;
+            // ---------------------------------
+
+            {
+                // IIFE
+                let sum = (function add(a, b) {
+                    return a + b;
+                })(10, 5);
+
+                console.log(sum);
+            }
+
+            {
+                // versi lain
+                (function () {
+                    console.log("dengan cara satu");
+                })();
+                // ---------------------------------
+
+                (() => {
+                    console.log("ini cara dua");
+                })();
+                // ---------------------------------
+
+                (function () {
+                    let counter = 0;
+                    function add(a, b) {
+                        return a + b;
+                    }
+                    console.log(add(10, 68));
+                })();
+                // ---------------------------------
+
+                (function namaFE() {
+                    console.log("Ini jalan");
+                })();
+            }
+        </script>
+    </body>
+</html>

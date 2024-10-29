@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>For-of For-in</title>
+</head>
+
+<body>
+
+   <ul>
+      <li class="nama">Dalis Hadi</li>
+      <li class="nama">Krismantari</li>
+      <li class="nama">Maryam</li>
+   </ul>
+
+
+   <script>
+      // @ts-nocheck
+      // for .. of
+      // yang termasuk dalam iterable object
+      // - string
+      // - Array
+      // - Arguments / NodeList
+      // - Map
+      // - Set
+      // - User-defined iterables
+
+      // Array
+      // const mhs = ['Hadi', 'Maryam', 'Tari']
+
+      // // for (let i = 0; i < mhs.length; i++) {
+      // //    console.log(mhs[i])
+      // // }
+
+      // mhs.forEach(m => { console.log(m) })
+
+      // // for ..of
+      // for (const m of mhs) {
+      //    console.log(m)
+      // }
+
+      // // string
+      // const nama = 'Dalis'
+      // for (const n of nama) {
+      //    console.log(n);
+      // }
+
+      // const mhs2 = ['Budi', 'Ridwan', 'Mercury']
+      // mhs2.forEach((m, i) => {
+      //    console.log(`${m} adalah mahasiswa ke-${i + 1}`)
+      // })
+
+      // for (const [i, m] of mhs2.entries()) {
+      //    // console.log(m);
+      //    console.log(`${m} adalah mahasiswa ke-${i + 1}`)
+      // }
+
+
+      // Nodelist
+      // const liNama = document.querySelectorAll('.nama')
+      // // liNama.forEach(n => console.log(n.textContent))
+
+      // // for-of
+      // for (n of liNama) {
+      //    console.log(n.textContent)
+      // }
+
+
+      // arguments
+      function jumlahkanAngka() {
+         // return [1, 2, 3, 4, 5].reduce((a, i) => a + i)
+         // arguments.forEach(a => jumlah += a)
+         let jumlah = 0
+         for (a of arguments) {
+            jumlah += a
+         }
+         return jumlah
+      }
+      console.log(jumlahkanAngka(1, 2, 3, 4, 5))
+
+      // for ..in untuk object
+      const mhs4 = {
+         nama: 'Hadi',
+         umur: 34,
+         email: 'dalishadisaputra@gmail.com',
+      }
+
+      for (m in mhs4) {
+         console.log(m)
+         console.log(mhs4[m])
+      }
+   </script>
+</body>
+
+</html>

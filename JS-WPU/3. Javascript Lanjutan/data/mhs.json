@@ -1,0 +1,23 @@
+    [
+         {   
+            "nama": "dalis hadi saputra",
+            "nrp": "06756763",
+            "email": "dalishadisaputra@gmail.com",
+            "jurusan": "Teknik Infomatika",
+            "idDosenWali": 1
+        },
+        {
+            "nama": "Ridwan Ali",
+            "nrp": "06987323",
+            "email": "ridwan@gmail.com",
+            "jurusan": "Teknik Industri",
+            "idDosenWali": 2
+        },
+        {
+            "nama": "Maryam Qurrota",
+            "nrp": "065232323",
+            "email": "maryamqurrota@gmail.com",
+            "jurusan": "Sistem Informasi",
+            "idDosenWali": 3
+        }
+    ]

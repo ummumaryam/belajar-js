@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+
+    <input type="text" id="search" placeholder="search">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+
+    <div id="detail"></div>
+
+
+    <script>
+
+        const tbody = document.querySelector('tbody');
+        const detail = document.getElementById('detail');
+        const searchForm = document.getElementById('search');
+        let userData = [];
+
+        const loadData = async () => {
+            try {
+                const url = await fetch('https://jsonplaceholder.typicode.com/users');
+                userData = await url.json();
+                console.log(userData);
+                loadUserData(userData);
+            } catch (err) {
+                console.log(err);
+            }
+
+        }
+
+        const loadUserData = (data) => {
+            let no = 1;
+            const output = data.map((e) => {
+                return `
+                <tr>
+                    <td>`+ (no++) + `</td>
+                    <td>${e.name}</td>
+                    <td>${e.email}</td>
+                    <td><button onclick='showDetail(${e.id})'>Detail</button></td>
+                </tr>
+                `
+            }).join('')
+            tbody.innerHTML = output;
+        }
+
+
+        function showDetail(id) {
+            fetch('https://jsonplaceholder.typicode.com/users/' + id)
+                .then((respon) => respon.json())
+                .then((data) => {
+                    detail.innerHTML = ''
+                    detail.insertAdjacentHTML('beforeend', `
+                    
+                        <ul>
+                            <li>Nama : ${data.name}</li>
+                            <li>User Name : ${data.username}</li>
+                            <li>Email : ${data.email}</li>
+                            <li>City : ${data.address.city}</li>
+                            <li>Street : ${data.address.street}</li>
+                            <li>Lat : ${data.address.geo.lat}</li>
+                            <li>No. Handphone : ${data.phone}</li>
+                        </ul>
+                    
+                    `)
+                })
+        }
+
+        searchForm.addEventListener('keyup', (y) => {
+            const value = y.target.value.toLowerCase();
+            const input = userData.filter((data) => {
+                return (
+                    data.name.toLowerCase().includes(value)
+                    // data.email.toLowerCase().includes(value)
+                )
+            })
+            loadUserData(input)
+        })
+
+
+
+        loadData();
+
+        // function loadData() {
+        //     fetch('data/t_detailmhs.json')
+        //         .then((respon) => respon.json())
+        //         .then((data) => {
+        //             let output = '';
+        //             let no = 1;
+        //             data.forEach(e => {
+        //                 output += `
+        //                 <tr>
+        //                     <td>`+ (no++) + `</td>
+        //                     <td>${e.nim}</td>
+        //                     <td>${e.nama_mhs}</td>
+        //                     <td>${e.jurusan}</td>
+        //                     <td>${e.tmpt_lahir}</td>
+        //                     <td>${e.tgl_lahir}</td>
+        //                     <td>${e.no_hp}</td>
+        //                 </tr>
+        //                 `
+        //             });
+        //             document.querySelector('tbody').innerHTML = output;
+
+        //         });
+        // }
+
+        // loadData();
+
+
+
+    </script>
+
+
+</body>
+
+</html>

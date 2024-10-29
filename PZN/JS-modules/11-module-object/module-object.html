@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module Object</title>
+</head>
+<body>
+<script type="module">
+
+    import * as hadi from "./module-object.js";
+
+    console.info(hadi.firstName);
+    console.info(hadi.middleName);
+    console.info(hadi.lastName);
+
+    hadi.hello();
+
+    const person = new hadi.Person();
+
+</script>
+</body>
+</html>

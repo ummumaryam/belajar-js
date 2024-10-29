@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REKURSIF</title>
+</head>
+
+<body>
+    <script>
+        // fungsi nya tidak bisa berhenti
+        // function tes() {
+        //     return tes();
+        // }
+        // tes();
+
+        // function tampilAngka(n) {
+        //     console.log(n);
+        //     return tampilAngka(n - 1);
+        // }
+        // tampilAngka(16);
+
+        // Base Case adalah kondisi akhir dari rekursif yang menghasilkan nilai
+
+        // -----------------------------------
+        // function cetakAngka(n) {
+        //     if (n === 0) {
+        //         return;
+        //     }
+        //     console.log(n);
+        //     cetakAngka(n - 1);
+        // }
+
+        // cetakAngka(15);
+
+        // Faktorial
+        function faktorial(n) {
+            if (n === 0) return 1;
+            return n * faktorial(n - 1);
+        }
+
+        faktorial(5);
+        // console.log(faktorial);
+
+    </script>
+</body>
+
+</html>

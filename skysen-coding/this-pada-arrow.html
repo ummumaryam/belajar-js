@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>This Pada Arrow Function</title>
+</head>
+
+<body>
+   <script>
+      let guru = {
+         firstName: "Dalis Hadi",
+         lastName: "Solution",
+         fullName: function () {
+            // return this
+            return `${this.firstName} ${this.lastName}`
+         },
+         fullNameArrow: () => {
+            // return this
+            return `${this.firstName} ${this.lastName}`
+         },
+         teach: function () {
+            let murid = ['Andi', 'Budi']
+            // murid.forEach(function (el) {
+            //    // console.log(this);
+            //    console.log(`${this.firstName} is teaching ${el}`)
+            // }, this);
+
+            // Arrow Function
+            murid.forEach((el) => {
+               console.log(`${this.firstName} is teaching ${el}`)
+            });
+         }
+      }
+   </script>
+</body>
+
+</html>

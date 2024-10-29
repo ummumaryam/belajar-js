@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tag Template Literals</title>
+        <style>
+            .hl {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+
+    <body>
+        <script>
+            // adalah bentuk yang lebih kompleks dari Template Literals, memungkinkan kita untuk membaca template literals melalui sebuah function
+
+            {
+                // Tagged Templates
+                const nama = "Dalis Hadi S";
+                const umur = 34;
+
+                function coba(string, ...nilai) {
+                    // let result = '';
+                    // string.forEach((str, a) => {
+                    //     result += `${str}${nilai[a] || ''}`;
+                    // });
+                    // return result;
+
+                    // pakai higher order function = reduce
+                    return string.reduce(
+                        (result, str, a) => `${result}${str}${nilai[a] || ""}`,
+                        ""
+                    );
+                }
+
+                const str = coba`Halo, Nama Saya ${nama}, saya ${umur} tahun.`;
+                console.log(str);
+            }
+
+            {
+                // Highlight
+                const nama = "Dalis Hadi S";
+                const umur = 34;
+                const email = "dalishadisaputra@gmail.com";
+
+                function highlight(string, ...nilai) {
+                    // pakai higher order function = reduce
+                    return string.reduce(
+                        (result, str, a) =>
+                            `${result}${str}<span class="hl">${
+                                nilai[a] || ""
+                            }</span>`,
+                        ""
+                    );
+                }
+
+                const str = highlight`Halo, Nama Saya ${nama}, saya ${umur} tahun, Alamat Email : ${email}`;
+                // console.log(str);
+
+                document.body.innerHTML = str;
+            }
+
+            {
+                // Escaping / Sanitize HTML Tags
+                function sanitize(string, ...values) {
+                    return DOMPurify.sanitize(aboutMe);
+                }
+
+                const name = "Dalis Hadi Saputra";
+                const aboutMe = "I love to do evil";
+
+                const html = sanitize`
+                <h3>${name}</h3>
+                <p>${aboutMe}</p>
+                `;
+            }
+
+            {
+                // Translation & Internationalization
+                const html = i18n(
+                    `Hello ${name}, you have ${amount}:c in your bank account.`
+                );
+
+                // Styled Components
+                const Title = styled.h1`
+                    font-size: 1.5em;
+                    text-align: center;
+                    color: palevioletred;
+                `;
+            }
+        </script>
+    </body>
+</html>

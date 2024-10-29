@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Spread Operator</title>
+   <style>
+      body {
+         background-color: salmon;
+         text-align: center;
+      }
+
+      .nama {
+         font-family: arial;
+         font-size: 60px;
+         color: white;
+      }
+
+      .nama span {
+         display: inline-block;
+         transition: .3s;
+         cursor: pointer;
+
+      }
+
+      .nama span:hover {
+         transform: scale(2) translateY(-20px);
+      }
+   </style>
+</head>
+
+<body>
+
+   <ul>
+      <li>Dalis Saputra</li>
+      <li>Krismantari</li>
+      <li>Maryam</li>
+   </ul>
+
+   <h1 class="nama">Dalis Hadi Saputra</h1>
+
+
+   <script>
+      // Spread Operator
+      // memecah (expand / unpack) iterables menjadi single element
+
+      // menggabungkan 2 array 
+      // const mhs = ['dalis', 'hadi', 'saputra']
+      // // console.log(...mhs[0])
+      // const dosen = ['ridwan', 'hanif', 'putra']
+      // const orang = [...mhs, 'riko', ...dosen]
+      // console.log(orang)
+      // const orang1 = mhs.concat(dosen)
+      // console.log(orang1);
+
+      // // mengcopy -array tidak disarankan
+      // const mhs1 = ['dalis', 'hadi', 'saputra']
+      // // const hadi = mhs1
+      // // hadi[0] = 'fajar'
+      // // console.log(hadi)
+
+      // console.log(mhs1)
+
+      // // mengcopy -array yang benar pakai spread Operator
+      // const mhs2 = [...mhs1];
+      // mhs2[0] = 'Rudi';
+      // console.log(mhs2)
+
+      // ------------------------------------------------
+      // DOM
+      const liMhs = document.querySelectorAll('li')
+      // console.log(liMhs[0].textContent)
+
+      // const mhs = [];
+      // for (let i = 0; i < liMhs.length; i++) {
+      //    mhs.push(liMhs[i].textContent)
+
+      // }
+      // console.log(mhs);
+
+      // const mhs = liMhs.map(m => m.textContent) //error
+      const mhs = [...liMhs].map(m => m.textContent)
+      console.log(mhs)
+
+      // ----------------------------------
+      const nama = document.querySelector('.nama')
+      const huruf = [...nama.textContent].map(h => `<span>${h}</span>`).join('')
+      // console.log(huruf)
+      nama.innerHTML = huruf
+
+
+
+   </script>
+</body>
+
+</html>

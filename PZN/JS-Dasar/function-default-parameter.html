@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Function Default Parameter</title>
+</head>
+
+<body>
+    <script>
+
+        // -----------------------------------------
+        // function register(name, gender = "UNKNOWN") {
+        //     console.info(name, gender);
+        //     // console.info(gender);
+        // }
+
+        // register();
+        // register("Eko");
+        // register("Eko", "MALE");
+        // register("Eko", undefined);
+        // register("Eko", null);
+
+        // -----------------------------------------
+        // contoh 2
+
+        // function sum(x = 3, y = 5) {
+        //     return x - y;
+        // }
+
+        // console.log(sum(5, 15));
+        // console.log(sum(7));
+        // console.log(sum());
+
+        // -----------------------------------------
+        // Using Expressions as Default Values
+        // function sum(x = 2, y = x, z = x + y) {
+        //     console.log(x + y + z);
+        // }
+
+        // sum();
+        // -----------------------------------------
+
+        // using a function in default value expression
+        const sum = () => 15;
+
+        const calculate = function (x, y = x * sum()) {
+            return x + y;
+        }
+
+        const hasil = calculate(20);
+        console.log(hasil);
+
+        // -----------------------------------------
+        // Passing undefined Value
+
+        // function tes(x = 1) {
+        //     console.log(x);
+        // }
+
+        // tes(undefined);
+
+    </script>
+</body>
+
+</html>

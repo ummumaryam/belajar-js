@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+
+<body>
+
+    <input type="text" id="search" placeholder="search">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>No. Mahasiswa</th>
+                <th>Nama Mahasiswa</th>
+                <th>Program Studi</th>
+                <th>Tempat Lahir</th>
+                <th>Tanggal Lahir</th>
+                <th>No. HP</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+
+    <div id="detail"></div>
+
+
+    <script>
+
+        const tbody = document.querySelector('tbody');
+        let userData = [];
+        // const detail = document.getElementById('detail');
+        // const searchForm = document.getElementById('search');
+
+        const loadData = async () => {
+            try {
+                const url = await fetch('data/t_detailmhs.json');
+                userData = await url.json();
+                console.log(userData);
+                loadUserData(userData);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        const loadUserData = (data) => {
+            let no = 1;
+            const output = data.map((e) => {
+                return `
+                <tr>
+                    <td>`+ (no++) + `</td>
+                    <td>${e.nim}</td>
+                    <td>${e.nama_mhs}</td>
+                    <td>${e.jurusan}</td>
+                    <td>${e.tmpt_lahir}</td>
+                    <td>${e.tgl_lahir}</td>
+                    <td>${e.no_hp}</td>
+                </tr>
+                `
+            }).join('')
+            tbody.innerHTML = output;
+        }
+
+        loadData();
+
+
+
+
+
+
+
+        // function loadData() {
+        //     fetch('data/t_detailmhs.json')
+        //         .then((respon) => respon.json())
+        //         .then((data) => {
+        //             let output = '';
+        //             let no = 1;
+        //             data.forEach(e => {
+        //                 output += `
+        //                 <tr>
+        //                     <td>`+ (no++) + `</td>
+        //                     <td>${e.nim}</td>
+        //                     <td>${e.nama_mhs}</td>
+        //                     <td>${e.jurusan}</td>
+        //                     <td>${e.tmpt_lahir}</td>
+        //                     <td>${e.tgl_lahir}</td>
+        //                     <td>${e.no_hp}</td>
+        //                 </tr>
+        //                 `
+        //             });
+        //             document.querySelector('tbody').innerHTML = output;
+
+        //         });
+        // }
+
+        // loadData();
+
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype Inheritance</title>
+</head>
+
+<body>
+    <script>
+
+        // function Employee(name) {
+        //     this.name = name;
+        // }
+
+        // function Manager(name) {
+        //     this.name = name;
+        // }
+
+        // Manager.prototype = Employee.prototype; // salah
+        // Manager.prototype = Object.create(Employee.prototype);
+
+        // Manager.prototype.sayHello = function (name) {
+        //     console.info(`Hello ${name}, my name is Manager ${this.name}`);
+        // }
+
+        // Employee.prototype.sayHello = function (name) {
+        //     console.info(`Hello ${name}, my name is Employee ${this.name}`);
+        // }
+
+        // const employee = new Employee("Budi");
+        // employee.sayHello("Joko");
+
+        // const manager = new Manager("Eko");
+        // manager.sayHello("Joko");
+
+        // console.info(employee);
+        // console.info(manager);
+
+        // --------------------------------------
+        // Prototype Inheritance
+
+        // function Person() {
+        //     this.name = 'Jhon',
+        //         this.age = 33
+        // }
+
+        // // creating objeck
+        // const person1 = new Person();
+        // const person2 = new Person();
+
+        // --------------------------------------
+        // // addig property to constructor function
+        // Person.prototype.gender = 'Male';
+
+        // // prototype value of Person
+        // console.log(Person.prototype);
+
+        // // inheriting the property from prototype
+        // console.log(person1.gender);
+        // console.log(person2.gender);
+
+        // --------------------------------------
+        // Add Method Constructor Function using Prototype
+
+        // function Person() {
+        //     this.name = 'Jhon',
+        //         this.age = 33
+        // }
+
+        // // creating objeck
+        // const person1 = new Person();
+        // // const person2 = new Person();
+
+        // // addig Method to the constructor function
+        // Person.prototype.greet = function () {
+        //     console.log('Hello' + ' ' + this.name);
+        // }
+
+        // Person.prototype.umur = function () {
+        //     console.log('My old' + ' ' + this.age);
+        // }
+
+        // person1.greet();
+        // person.umur();
+
+        // Changing Prototype
+        // function Orang() {
+        //     this.nama = 'Tari'
+        // }
+
+        // // add a property
+        // Orang.prototype.umur = 33;
+
+        // // creating an object
+        // const orang1 = new Orang();
+        // console.log(orang1.umur);
+        // // console.log(orang1);
+
+        // // changing the property value or prototype
+        // Orang.prototype = { umur: 50 };
+        // const person3 = new Orang();
+
+        // console.log(person3.umur);
+        // console.log(orang1.umur);
+
+        // JavaScript Prototype Chaining
+        // --------------------------------------
+        // function Orang() {
+        //     this.nama = 'Maryam';
+        // }
+
+        // // add property
+        // Orang.prototype.nama = 'Tari';
+        // Orang.prototype.umur = 25;
+
+        // const orang5 = new Orang();
+
+        // console.log(orang5.nama);
+        // console.log(orang5.umur);
+
+
+        // Prototype Chaining
+        // --------------------------------------
+
+        function Orang() {
+            this.nama = 'Maryam';
+        }
+
+        // add prototype
+        Orang.prototype.umur = 25;
+
+        const orang5 = new Orang();
+
+        // accessing prototype property
+        console.log(orang5.__proto__);
+
+
+
+
+    </script>
+</body>
+
+</html>

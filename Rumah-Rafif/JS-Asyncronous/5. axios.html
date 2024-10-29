@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axios Javascript</title>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+<body>
+    <script>
+
+        const url = 'https://reqres.in/api/users'
+        // fetch(url + '/1')
+        //     .then((respon) => respon.json())
+        //     .then((data) => console.log(data.data))
+        //     .catch((error) => console.log('error: +error'))
+
+        // Menggunakan Axios
+
+        // axios.get(url + '/1')
+        //     .then((data) => console.log(data.data))
+        //     .catch((error) => console.log('error: +error'))
+
+        // fetch(url, {
+        //     method: 'post',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         name: 'Dalis',
+        //         job: 'Pengacara'
+        //     })
+        // })
+        //     .then((respon) => respon.json())
+        //     .then((data) => console.log(data))
+
+        // Menggunakan Axios
+        // axios.post(url, {
+        //     name: 'Dedy',
+        //     job: 'Karyawan'
+        // })
+        //     .then((data) => console.log(data))
+
+        fetch(url + '/x')
+            .then((respon) => console.log(respon))
+            .catch((error) => console.log('error: +error'))
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Javascript</title>
+</head>
+
+<body>
+    <script>
+        // fetch("https://reqres.in/api/users/1")
+        //     .then((hasil) => hasil.json())
+        //     .then((json) => console.log(json));
+
+        // fetch("https://reqres.in/api/users/1 ", {
+        //     method: "post",
+        //     headers: {
+        //         "content-type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         name: "Dalis Hadi Saputra",
+        //         job: "Data Engineer",
+        //     }),
+        // })
+        //     .then((respon) => respon.json())
+        //     .then((json) => console.log(json));
+
+        fetch("https://reqres.in/api/users/1")
+            .then((respon) => {
+                if (respon.ok) {
+                    console.log("ada data");
+                    return respon.json();
+                } else {
+                    return Promise.reject({
+                        status: respon.status,
+                    });
+                }
+            })
+            .then((json) => console.log(json))
+            .catch((error) => {
+                if (error.status == 404) {
+                    console.log("Data tidak ditemukan");
+                }
+            });
+    </script>
+</body>
+
+</html>

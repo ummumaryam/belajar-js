@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Asyncronous</title>
+    </head>
+    <body>
+        <script>
+            // Asyncronous
+            function hitung(param1, param2, aksi) {
+                let hasil = 0;
+                hasil = aksi(param1, param2);
+                return hasil;
+            }
+
+            function tambah(param1, param2) {
+                return param1 + param2;
+            }
+
+            function kurang(param1, param2) {
+                return param1 - param2;
+            }
+            console.log(`satu`);
+            setTimeout(() => {
+                console.log(hitung(4, 1, tambah));
+                console.log(hitung(10, 1, kurang));
+            }, 2000);
+            // console.log(hitung(4, 1, tambah));
+            console.log(`tiga`);
+        </script>
+    </body>
+</html>
